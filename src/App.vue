@@ -31,11 +31,11 @@ nav a.router-link-exact-active {
 }
 
 .card{
-  background-color: #cb285c;
+  background-color: #333;
   color: #fff;
-  box-shadow: 2px 3px 0 #83072e;
+  box-shadow: 2px 3px 0 #28adcb
 }
 .card:hover{
-  box-shadow: 3px 4px 2px #83072e;
+  box-shadow: 3px 4px 2px #28adcb;
 }
 </style>
