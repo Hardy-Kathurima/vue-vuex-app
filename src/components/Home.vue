@@ -5,7 +5,7 @@
         <div class="col-md-4 mb-3" v-for="product in products" :key="product.id">
             <div class="card card-body">
                 <p class="lead">{{ product.name }} <strong>${{ product.price  }}</strong></p>
-                <p> <span><button class="btn btn-info btn-sm">Edit</button></span> <span><button @click="deleteUser(product.id)" class="btn btn-danger btn-sm">Delete</button></span></p>
+                <p> <router-link :to=" '/edit-product/' + product.id "><span><button class="btn btn-info btn-sm">Edit</button></span></router-link> <span><button @click="deleteProduct(product.id)" class="btn btn-danger btn-sm">Delete</button></span></p>
             </div>
         </div>
         <div v-if="products.length <=0" class="col-md-4 my-3">
@@ -26,8 +26,8 @@
             }
         },
         methods:{
-        deleteUser:function(id){
-            this.$store.dispatch('deleteUser',id);
+        deleteProduct:function(id){
+            this.$store.dispatch('deleteProduct',id);
         }
 
         },

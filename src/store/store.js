@@ -6,27 +6,47 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state:{
-        products:[]
+        products:[
+          {id:"1",name:"TimberLand",price:5000},
+          {id:"2",name:"Gucci",price:3000},
+        ]
     },
     mutations:{
-        addUser:(state,payload)=>{
+        addProduct:(state,payload)=>{
             state.products.push(payload);
         },
-        deleteUser:(state,payload)=>{
+        deleteProduct:(state,payload)=>{
 
            state.products = state.products.filter(product => product.id !== payload);
+
+        },
+        updateProduct:(state,payload)=>{
+  
+       const updatedProduct = payload;
+
+       state.products.filter(product => product.id === payload.id).map(product => {
+        product.name=payload.name;
+        product.price=payload.price;
+       })
+        
 
         }
        
 
+
     },
     actions:{
 
-      addUser:(context,payload)=>{
-        context.commit('addUser',payload);
+      addProduct:(context,payload)=>{
+        context.commit('addProduct',payload);
       },
-      deleteUser:(context,payload)=>{
-        context.commit('deleteUser',payload);
+      updateProduct:(context,payload)=>{
+
+        context.commit('updateProduct',payload);
+
+      },
+      deleteProduct:(context,payload)=>{
+        context.commit('deleteProduct',payload);
       }
 
     }
